@@ -16,7 +16,7 @@ module "eks" {
 
 module "vpc" {
   source                  = "./modules/vpc"
-  tags                    = "Project"
+  tags                    = "Project22"
   instance_tenancy        = "default"
   vpc_cidr                = "10.0.0.0/16"
   access_ip               = "0.0.0.0/0"
