@@ -2,7 +2,7 @@ module "eks" {
   source                  = "./modules/eks"
   aws_public_subnet       = module.vpc.aws_public_subnet
   vpc_id                  = module.vpc.vpc_id
-  cluster_name            = "education-eks-${random_string.suffix.result}"
+  cluster_name            = "project-eks-${random_string.suffix.result}"
   endpoint_public_access  = true
   endpoint_private_access = false
   public_access_cidrs     = ["0.0.0.0/0"]
