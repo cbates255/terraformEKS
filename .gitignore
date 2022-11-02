@@ -1,3 +1,5 @@
 .terraform/providers/registry.terraform.io/hashicorp/aws/4.15.1/linux_amd64/terraform-provider-aws_v4.15.1_x5
 .terraform/providers/registry.terraform.io/hashicorp/random/3.4.3/linux_amd64/terraform-provider-random_v3.4.3_x5
 .terraform/providers/registry.terraform.io/hashicorp/tfe/0.38.0/linux_amd64/terraform-provider-tfe_v0.38.0_x5
+.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.15.0/linux_amd64/terraform-provider-kubernetes_v2.15.0_x5
+.terraform/providers/registry.terraform.io/hashicorp/random/3.1.0/linux_amd64/terraform-provider-random_v3.1.0_x5
