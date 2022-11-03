@@ -1,46 +1,3 @@
-resource "aws_eks_cluster" "project22cluster" {
-  name     = var.cluster_name
-  role_arn = aws_iam_role.example.arn
-
-  vpc_config {
-    subnet_ids              = var.aws_public_subnet
-    endpoint_public_access  = var.endpoint_public_access
-    endpoint_private_access = var.endpoint_private_access
-    public_access_cidrs     = var.public_access_cidrs
-    security_group_ids      = [aws_security_group.node_group_one.id]
-  }
-
-  depends_on = [
-    aws_iam_role_policy_attachment.example-AmazonEKSClusterPolicy,
-    aws_iam_role_policy_attachment.example-AmazonEKSVPCResourceController,
-  ]
-}
-
-resource "aws_eks_node_group" "project22NG" {
-  cluster_name    = aws_eks_cluster.project22cluster.name
-  node_group_name = var.node_group_name
-  node_role_arn   = aws_iam_role.example2.arn
-  subnet_ids      = var.aws_public_subnet
-  instance_types  = var.instance_types
-
-  remote_access {
-    source_security_group_ids = [aws_security_group.node_group_one.id]
-    ec2_ssh_key               = var.key_pair
-  }
-
-  scaling_config {
-    desired_size = var.scaling_desired_size
-    max_size     = var.scaling_max_size
-    min_size     = var.scaling_min_size
-  }
-
-  depends_on = [
-    aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy,
-    aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy,
-    aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly,
-  ]
-}
-
 resource "aws_security_group" "node_group_one" {
   name_prefix = "node_group_one"
   vpc_id      = var.vpc_id
@@ -59,10 +16,6 @@ resource "aws_security_group" "node_group_one" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-
-
-
 
 resource "aws_iam_role" "example" {
   name = "eks-cluster-example"
@@ -88,8 +41,6 @@ resource "aws_iam_role_policy_attachment" "example-AmazonEKSClusterPolicy" {
   role       = aws_iam_role.example.name
 }
 
-# Optionally, enable Security Groups for Pods
-# Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
 resource "aws_iam_role_policy_attachment" "example-AmazonEKSVPCResourceController" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
   role       = aws_iam_role.example.name
@@ -124,5 +75,3 @@ resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryRea
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   role       = aws_iam_role.example2.name
 }
-
-
