@@ -18,7 +18,7 @@ resource "aws_subnet" "public_project_subnet" {
   count                   = var.public_sn_count
   vpc_id                  = aws_vpc.project.id
   cidr_block              = var.public_cidrs[count.index]
-  availability_zone       = var.az
+  availability_zone       = var.az[count.index]
   map_public_ip_on_launch = var.map_public_ip_on_launch
   tags = {
     Name = var.tags
