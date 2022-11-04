@@ -7,9 +7,9 @@ module "cluster" {
   role_arn                = module.security.role_arn
   nodeSGid                = module.security.nodeSGid
   rolearn2                = module.security.rolearn2  
-  scaling_desired_size    = 2
-  scaling_max_size        = 2
-  scaling_min_size        = 2
+  scaling_desired_size    = 1
+  scaling_max_size        = 1
+  scaling_min_size        = 1
   nodepolicy              = module.security.nodepolicy
   cnipolicy               = module.security.cnipolicy
   registry                = module.security.registry
