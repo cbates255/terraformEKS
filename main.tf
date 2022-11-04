@@ -10,6 +10,9 @@ module "cluster" {
   scaling_desired_size    = 2
   scaling_max_size        = 2
   scaling_min_size        = 2
+  nodepolicy              = module.security.nodepolicy
+  cnipolicy               = module.security.cnipolicy
+  registry                = module.security.registry
   instance_types          = ["t3.small"]
   key_pair                = "latestpair"
   nodegroupID             = module.security.nodegroupID

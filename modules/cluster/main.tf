@@ -35,8 +35,8 @@ resource "aws_eks_node_group" "project22NG" {
   }
 
   depends_on = [
-    aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy,
-    aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy,
-    aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly,
+    var.nodepolicy,
+    var.cnipolicy,
+    var.registry,
   ]
 }

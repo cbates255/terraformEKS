@@ -13,3 +13,6 @@ variable "rolearn2" {}
 variable "nodegroupID" {}
 variable "clusterpolicy" {}
 variable "controller" {}
+variable "nodepolicy" {}
+variable "cnipolicy" {}
+variable "registry" {}

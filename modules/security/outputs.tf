@@ -21,3 +21,15 @@ output "clusterpolicy" {
 output "controller" {
   value = aws_iam_role_policy_attachment.example-AmazonEKSVPCResourceController
 }
+
+output "nodepolicy" {
+  value = aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy
+}
+
+output "cnipolicy" {
+  value = aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy
+}
+
+output "registry" {
+  value = aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly
+}
