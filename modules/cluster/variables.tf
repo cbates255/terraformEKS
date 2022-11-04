@@ -11,3 +11,5 @@ variable "role_arn" {}
 variable "nodeSGid" {}
 variable "rolearn2" {}
 variable "nodegroupID" {}
+variable "clusterpolicy" {}
+variable "controller" {}

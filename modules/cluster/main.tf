@@ -11,8 +11,8 @@ resource "aws_eks_cluster" "project22cluster" {
   }
 
   depends_on = [
-    aws_iam_role_policy_attachment.example-AmazonEKSClusterPolicy,
-    aws_iam_role_policy_attachment.example-AmazonEKSVPCResourceController,
+    var.clusterpolicy,
+    var.controller,
   ]
 }
 

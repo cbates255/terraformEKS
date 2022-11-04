@@ -13,3 +13,11 @@ output "rolearn2" {
 output "nodegroupID" {
   value = aws_security_group.node_group_one.id
 }
+
+output "clusterpolicy" {
+  value = aws_iam_role_policy_attachment.example-AmazonEKSClusterPolicy
+}
+
+output "controller" {
+  value = aws_iam_role_policy_attachment.example-AmazonEKSVPCResourceController
+}

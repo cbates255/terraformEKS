@@ -13,6 +13,8 @@ module "cluster" {
   instance_types          = ["t3.small"]
   key_pair                = "latestpair"
   nodegroupID             = module.security.nodegroupID
+  clusterpolicy           = module.security.clusterpolicy
+  controller              = module.security.controller
 }
 
 module "network" {
