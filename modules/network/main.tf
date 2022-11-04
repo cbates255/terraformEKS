@@ -13,9 +13,9 @@ resource "aws_internet_gateway" "project_gw" {
     Name = var.tags
   }
 }
+
 data "aws_availability_zones" "available" {
 }
-
 
 resource "random_shuffle" "az_list" {
   input        = data.aws_availability_zones.available.names
